@@ -147,6 +147,20 @@ body{background:#f2f6fe}
 .sx-exam-mgmt select{display:block;width:100%;padding:12px;border:1px solid #b5c7d7;border-radius:10px;background:#fff;font:inherit;margin:6px 0 12px}
 .sx-exam-mgmt p{margin:5px 0 12px;font-size:.87rem;color:#5c6d84}
 @media(max-width:540px){.sx-archive-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sx-archive-tile{padding:14px 11px;min-height:104px}.sx-archive-tile b{font-size:1rem}}
+
+/* Sulex Somali + Amharic stacked action labels */
+.sx-amh{display:block;font-family:system-ui,Arial,sans-serif;font-size:.76em;line-height:1.3;font-weight:600;opacity:.87;margin-top:3px;letter-spacing:0}
+.sulex-global-links a{display:flex;flex-direction:column;justify-content:center;align-items:center;line-height:1.2;text-align:center;min-height:49px;padding:7px 11px}
+.sulex-global-links a .sx-amh{font-size:.72em;margin-top:4px}
+.sx-archive-tile .sx-amh{font-size:.72em;font-weight:500;opacity:.8}
+.sm-btn .sx-amh{font-size:.78em}
+.sx-bulk-import{border:1px solid #8cb6a7;background:#eff9f2;border-radius:20px;padding:24px 19px;margin:22px 0}
+.sx-bulk-import h3{font-size:1.35rem;margin:0 0 8px;color:#10354b}
+.sx-bulk-import input[type=file]{width:100%;max-width:100%;background:#fff;padding:12px;border:1px solid #aabacb;border-radius:11px}
+.sx-bulk-import button{margin:15px 0 6px}
+.sx-bulk-import small{display:block;color:#445777;line-height:1.5}
+.sx-archive-caption strong{color:#064a62}
+@media(max-width:500px){.sulex-global-links{gap:4px}.sulex-global-links a{font-size:.73rem;padding:7px 7px}.sulex-global-links a .sx-amh{font-size:.66em}}
 </style><style>
 .sx-reference-note{padding:13px 16px;margin:12px 0 17px;background:#eaf4ff;color:#123d64;border-radius:12px;border:1px solid #bcdaf8;line-height:1.65;font-size:.88rem}
 .sx-source-box{padding:18px;margin:18px 0 28px;border:1px solid #afc8e2;border-radius:18px;background:#eff6ff;display:flex;flex-direction:column;gap:9px;max-width:680px;color:#173452}
@@ -281,7 +295,17 @@ body{background:#f2f6fe}
 <section id="view-grade10" class="sulex-screen sulex-market-page" hidden><div class="container"><nav class="sulex-breadcrumb" aria-label="Meesha aad joogto"><a href="#home">Bogga hore</a><span>›</span><a href="#shop">Book Shop</a><span>›</span><a href="#exams">Imtixaannada</a><span>›</span><strong>Grade 10</strong></nav><div class="sulex-market-head"><h1>🔟 Imtixaannada Grade 10</h1><p>Maaddooyinka iyo sannadihii loo diyaariyay imtixaannada fasalka 10aad.</p></div><p class="sx-reference-note">📚 Ilaha warqadihii hore: Camara Education Ethiopia. Akhrisku waa bilaash; nuquladda lama iibinayo. Imtixaannada iyo sharaxaadaha ay Sulex samayso waxaa lagu iibin karaa 100 Birr.</p><div id="sm-examitems-10" class="sx-exam-archive"><div class="sx-archive-empty">Sannadaha iyo maaddooyinka waa la diyaarinayaa…</div></div></div></section>
 <section id="view-grade12" class="sulex-screen sulex-market-page" hidden><div class="container"><nav class="sulex-breadcrumb" aria-label="Meesha aad joogto"><a href="#home">Bogga hore</a><span>›</span><a href="#shop">Book Shop</a><span>›</span><a href="#exams">Imtixaannada</a><span>›</span><strong>Grade 12</strong></nav><div class="sulex-market-head"><h1>🎓 Imtixaannada Grade 12</h1><p>Maaddooyinka iyo sannadihii loo diyaariyay imtixaannada fasalka 12aad.</p></div><p class="sx-reference-note">📚 Ilaha warqadihii hore: Temari.et. Warqadahooda halkaan laguma kaydiyo lagumana iibiyo. Maaddooyinka iyo sharaxaadaha cusub ee Sulex ayaa noqon doona 100 Birr.</p><div id="sm-examitems-12" class="sx-exam-archive"><div class="sx-archive-empty">Sannadaha iyo maaddooyinka waa la diyaarinayaa…</div></div></div></section>
 <section id="view-library" class="sulex-screen sulex-market-page" hidden><div class="container"><nav class="sulex-breadcrumb" aria-label="Meesha aad joogto"><a href="#home">Bogga hore</a><span>›</span><a href="#shop">Book Shop</a><span>›</span><strong>Maktabaddayda</strong></nav><div class="sulex-market-head"><h1>📚 Maktabaddayda</h1><p>Wax kasta oo laguu furay waxay kuugu kaydsan yihiin isla Google account-ka aad ku iibsatay.</p></div><p class="sulex-help" id="sm-library-tip">Haddii aadan weli gelin, taabo <a href="#shop"><strong>Book Shop → Continue with Google</strong></a>.</p><div id="sm-my-books" class="sm-grid sm-items"><div class="sm-empty">Si aad maktabaddaada u aragto, taabo Continue with Google.</div></div></div></section>
-<section id="view-admin" class="sulex-screen sulex-market-page" hidden><div class="container"><nav class="sulex-breadcrumb" aria-label="Meesha aad joogto"><a href="#home">Bogga hore</a><span>›</span><a href="#shop">Book Shop</a><span>›</span><strong>Maamulka</strong></nav><section class="section sm-admin" hidden="" id="sm-admin"><div class="container"><div class="sm-admin-intro"><h2>🔒 Maamulka Sulex Book Shop</h2><p>Kaliya Google account-ka maamulka ayaa joornaallada daabici kara oo dalabyada ansixin kara. <strong>Ha ansixin dalab aan lacagtiisa bangiga ama Telebirr laga xaqiijin.</strong></p></div><div class="sm-admin-cols"><div class="sm-admin-card"><section id="sm-import-package" class="sm-import-package"><h3>📦 Daabac xirmada Adwa 1896</h3><p>Dooro faylka <b>Adwa_1896_100_Birr.json</b> ee aad ChatGPT ka soo dejisay. Qoraalka buuxa wuxuu ku jiraa faylkaas, <b>ma aha website-ka dadweynaha</b>; sawirrada taariikheedna Wikimedia ayaa online laga soo bandhigayaa.</p><label>Faylka joornaalka<input id="sm-import-file" type="file" accept=".json,application/json" /></label><button type="button" id="sm-import-publish" class="sm-btn sm-main sm-full">📢 Daabac joornaalka • 100 Birr</button><p class="sm-muted" id="sm-import-status" role="status">Hal mar dooro faylka, kadib taabo Daabac.</p></section><section class="sm-import-package" id="sx-exam-package" style="background:#f1f9f2;border:1px solid #c6deca;border-radius:16px;padding:15px;margin:14px 0"><h3>📘 Daabac imtixaanka Sulex (100 Birr)</h3><p>Hal fayl JSON dooro si su’aalaha, jawaabaha iyo sharaxaadda loogu kaydiyo qaybta gaarka ah ee iibsadaha. Joornaalka Adwa waxba lagama beddelayo.</p><label>Faylka imtixaanka <input id="sx-exam-file" type="file" accept=".json,application/json"></label><button type="button" id="sx-exam-import" class="sm-btn sm-main sm-full">📤 Daabac imtixaanka • 100 Birr</button><p id="sx-exam-status" class="sm-muted" role="status"></p></section><h3>Daabac joornaal / imtixaan</h3><form id="sm-publish-form"><label>Nooca<select id="sm-product-category"><option value="journal">Joornaal taariikheed</option><option value="grade10">Grade 10</option><option value="grade12">Grade 12</option></select></label><div class="sx-exam-mgmt" id="sx-exam-mgmt" hidden>
+<section id="view-admin" class="sulex-screen sulex-market-page" hidden><div class="container"><nav class="sulex-breadcrumb" aria-label="Meesha aad joogto"><a href="#home">Bogga hore</a><span>›</span><a href="#shop">Book Shop</a><span>›</span><strong>Maamulka</strong></nav><section class="section sm-admin" hidden="" id="sm-admin"><div class="container"><div class="sm-admin-intro"><h2>🔒 Maamulka Sulex Book Shop</h2><p>Kaliya Google account-ka maamulka ayaa joornaallada daabici kara oo dalabyada ansixin kara. <strong>Ha ansixin dalab aan lacagtiisa bangiga ama Telebirr laga xaqiijin.</strong></p></div><div class="sm-admin-cols"><div class="sm-admin-card"><section id="sm-import-package" class="sm-import-package"><h3>📦 Daabac xirmada Adwa 1896</h3><p>Dooro faylka <b>Adwa_1896_100_Birr.json</b> ee aad ChatGPT ka soo dejisay. Qoraalka buuxa wuxuu ku jiraa faylkaas, <b>ma aha website-ka dadweynaha</b>; sawirrada taariikheedna Wikimedia ayaa online laga soo bandhigayaa.</p><label>Faylka joornaalka<input id="sm-import-file" type="file" accept=".json,application/json" /></label><button type="button" id="sm-import-publish" class="sm-btn sm-main sm-full">📢 Daabac joornaalka • 100 Birr</button><p class="sm-muted" id="sm-import-status" role="status">Hal mar dooro faylka, kadib taabo Daabac.</p></section><section class="sm-import-package" id="sx-exam-package" style="background:#f1f9f2;border:1px solid #c6deca;border-radius:16px;padding:15px;margin:14px 0"><h3>📘 Daabac imtixaanka Sulex (100 Birr)</h3><p>Hal fayl JSON dooro si su’aalaha, jawaabaha iyo sharaxaadda loogu kaydiyo qaybta gaarka ah ee iibsadaha. Joornaalka Adwa waxba lagama beddelayo.</p><label>Faylka imtixaanka <input id="sx-exam-file" type="file" accept=".json,application/json"></label><button type="button" id="sx-exam-import" class="sm-btn sm-main sm-full">📤 Daabac imtixaanka • 100 Birr</button><p id="sx-exam-status" class="sm-muted" role="status"></p></section>
+<section class="sx-bulk-import" id="sx-bulk-box">
+ <h3>📦 Dhammaan maaddooyinka • 100 Birr <span class="sx-amh">ሁሉም ትምህርቶች • 100 ብር</span></h3>
+ <p>Hal fayl JSON dooro; waxa lagu daabacayaa maaddooyinka Grade 10 iyo Grade 12 oo dhan, iyada oo imtixaanka Mathematics ee hore, Adwa iyo buugga aan la beddelayn. Waa tababarro guud oo Sulex diyaarisay, ma aha imtixaannadii qaranka ee hore.</p>
+ <label for="sx-bulk-file">Faylka maaddooyinka <span class="sx-amh">የትምህርቶች ፋይል</span></label>
+ <input type="file" id="sx-bulk-file" accept=".json,application/json" />
+ <button type="button" class="sm-btn sm-main sm-full" id="sx-bulk-import">📤 Daabac dhammaan maaddooyinka <span class="sx-amh">ሁሉንም ትምህርቶች አትም</span></button>
+ <p id="sx-bulk-status" role="status" aria-live="polite"></p>
+ <small>Kaliya maamulka ayaa daabici kara. Qoraalka su’aalaha iyo jawaabaha waxa lagu kaydiyaa Firestore qaybta gaarka ah ee iibsadaha, ee GitHub looma gelinayo. Haddii qaar hore u yaallaan, kuwii hore waa la dhaafayaa.</small>
+</section>
+<h3>Daabac joornaal / imtixaan</h3><form id="sm-publish-form"><label>Nooca<select id="sm-product-category"><option value="journal">Joornaal taariikheed</option><option value="grade10">Grade 10</option><option value="grade12">Grade 12</option></select></label><div class="sx-exam-mgmt" id="sx-exam-mgmt" hidden>
 <strong>📝 Imtixaanka: dooro sannad iyo maaddo</strong>
 <p>Qiimaha maaddo kasta oo Sulex samayso: <b>100 Birr.</b> Daabac oo keliya su’aalo iyo jawaabo aad adigu diyaarisay ama aad xaq u leedahay inaad iibiso.</p>
 <label>Sannadka Itoobiya (T.I.)<select id="sx-exam-year"></select></label>
@@ -393,7 +417,7 @@ function card(p, owned=false) {
   const cardBody=document.createElement('div');
   cardBody.innerHTML = `<span class="sm-card-kicker">${esc(cats[p.category]||'Joornaal')} ${p.year?'• '+esc(p.year):''}</span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p><div class="sm-card-foot"><strong>${money(price)}</strong><button class="sm-btn ${owned?'sm-main':'sm-outline'}" type="button">${owned?'📖 Akhri hadda':'🛒 Iibso'}</button></div>`;
   art.append(cardBody);
-  art.querySelector('button').addEventListener('click',()=>owned?openReader(p):orderFor(p));
+  const act=art.querySelector('button');const am=document.createElement('small');am.className='sx-amh';am.textContent=owned?'አሁን አንብብ':'ግዛ';act.append(am);act.addEventListener('click',()=>owned?openReader(p):orderFor(p));
   return art;
 }
 function empty(container,text){container.replaceChildren();const d=document.createElement('div');d.className='sm-empty';d.textContent=text;container.append(d)}
@@ -442,9 +466,26 @@ function sxShowPublicSource(host,source,grade,year,subject){
  const credit=document.createElement('small');credit.textContent='Xogta waxaa leh isha asalka ah. Ma nuqulayno mana iibinayno warqaddooda. 100 Birr waxa loo qoondeeyay oo keliya imtixaan ama sharaxaad Sulex leeyahay.';
  box.append(heading,desc,link,credit);host.append(box);
 }
-const SX_YEAR_RANGES={'10':[1996,2011],'12':[1996,2018]};
+const SX_YEAR_RANGES={'10':[1996,2019],'12':[1996,2019]};
 const sxExamPosition={'10':{year:null,subject:null},'12':{year:null,subject:null}};
 const sxNormalizeSubject=t=>String(t||'').toLowerCase().replace(/[^a-z0-9\u00c0-\u024f\u1200-\u137f]/g,'');
+// One study pack is sold only once per subject. Showing it in multiple year shelves never means separate old exams.
+function sxUniversalExam(p){
+ return p.scope==='all_years'||/Sulex Tababar Guud Set 1/i.test(p.title||'')||
+   (p.category==='grade10'&&p.title==='Mathematics — Grade 10 — Sulex Tababar Set 1');
+}
+const SX_ETH_BUTTONS={
+ '← Dhammaan sannadaha':'← ሁሉም ዓመታት',
+ 'Fur qaybta →':'ክፍሉን ክፈት',
+ '📖 Akhri hadda':'📖 አሁን አንብብ',
+ '🛒 Iibso':'🛒 ግዛ',
+ '📢 Daabac hadda':'አሁን አትም'
+};
+function sxTranslateButton(label){
+ return SX_ETH_BUTTONS[label] ||
+  (label.startsWith('← Maaddooyinka')?'← ትምህርቶች':'');
+}
+
 function sxMeta(p,grade){
  const raw=String(p.year||'')+' '+String(p.title||'');
  const year=String(p.year||'').match(/\b(?:19|20)\d\d\b/)?.[0]||
@@ -457,7 +498,7 @@ function sxMeta(p,grade){
  return {year,subject};
 }
 function sxCreateButton(label,onClick,cls){
- const b=document.createElement('button');b.type='button';b.className=cls;b.textContent=label;b.addEventListener('click',onClick);return b;
+ const b=document.createElement('button');b.type='button';b.className=cls;b.textContent=label;const tr=sxTranslateButton(label);if(tr){const sm=document.createElement('small');sm.className='sx-amh';sm.textContent=tr;b.append(sm)}b.addEventListener('click',onClick);return b;
 }
 function sxOpenYear(grade,year){sxExamPosition[grade]={year,subject:null};renderExamArchive(grade);}
 function sxOpenSubject(grade,subject){sxExamPosition[grade].subject=subject;renderExamArchive(grade);}
@@ -473,30 +514,30 @@ function renderExamArchive(grade){
  const count=arr=>arr.length?`${arr.length} maaddo la daabacay`:'Imtixaanno wali lama gelin';
  if(!selected.year){
    const note=document.createElement('p');note.className='sx-archive-caption';
-   note.textContent=grade==='10'?'Imtixaankii qaran ee Grade 10 wuxuu ku ekaaday 2011 T.I.; sannadaha cusub waxa lagu dari karaa tababarro Sulex diyaarisay.':'Kaydka sannadaha 1996–2018 T.I., iyo tababarro cusub oo Sulex diyaarisay. Sannad kastaa maaddooyin gaar ah ayuu leeyahay.';
+   note.textContent=grade==='10'?'Imtixaankii qaran ee Grade 10 wuxuu ku ekaaday 2011 T.I. Sannad walba waxaa ka muuqan kara tababarka guud ee Sulex: isla maaddada hal mar oo keliya ayaa la iibsanayaa.':'Kaydka sannadaha 1996–2018 T.I. iyo tababarada cusub ee 2019 T.I. Hal Set 1 oo maaddo kasta ah ayaa ka muuqan kara sannado badan; mar keliya ayaa la iibsanayaa.';
    host.append(note);
    const grid=document.createElement('div');grid.className='sx-archive-grid';
    years.forEach(y=>{
-     const arr=target.filter(p=>sxMeta(p,grade).year===y);
+     const arr=target.filter(p=>sxMeta(p,grade).year===y || sxUniversalExam(p));
      const b=sxCreateButton('',()=>sxOpenYear(grade,y),'sx-archive-tile');
-     const title=document.createElement('b');title.textContent=`📅 ${y} T.I.${grade==='10' && Number(y)>2011?' • Tababar Sulex':''}`;
+     const title=document.createElement('b');title.textContent=`📅 ${y} T.I.${(grade==='10' && Number(y)>2011 || grade==='12'&&Number(y)>2018)?' • Tababar Sulex':''}`;
      const sub=document.createElement('span');sub.className='sx-count';const sources=sxSourceCount(grade,y);sub.textContent=arr.length?count(arr):(sources?sources+' maaddo: ilaha bilaashka ah':'Weli lama gelin');
      b.append(title,sub);grid.append(b);
    });host.append(grid);return;
  }
  host.append(sxCreateButton('← Dhammaan sannadaha',()=>{selected.year=null;selected.subject=null;renderExamArchive(grade)},'sx-archive-back'));
- const name=document.createElement('h2');name.textContent=`Grade ${grade} · ${selected.year} T.I.${grade==='10' && Number(selected.year)>2011?' (Tababar Sulex)':''}`;host.append(name);
- const inYear=target.filter(p=>sxMeta(p,grade).year===selected.year);
+ const name=document.createElement('h2');name.textContent=`Grade ${grade} · ${selected.year} T.I.${(grade==='10'&&Number(selected.year)>2011||grade==='12'&&Number(selected.year)>2018)?' (Tababar Sulex)':''}`;host.append(name);
+ const inYear=target.filter(p=>sxMeta(p,grade).year===selected.year || sxUniversalExam(p));
  const dynamic=inYear.map(p=>sxMeta(p,grade).subject).filter(Boolean);
  const subjects=[...new Set([...SX_EXAM_SUBJECTS[grade],...dynamic])];
  if(!selected.subject){
-   const intro=document.createElement('p');intro.className='sx-archive-caption';intro.textContent='Dooro maaddo: imtixaannada Sulex ee la daabacay waa 100 Birr; ilaha imtixaannadii hore ee bannaanka yaalla waa bilaash, mana iibinayno nuqulladooda.';host.append(intro);
+   const intro=document.createElement('p');intro.className='sx-archive-caption';intro.textContent='Dooro maaddo: Tababarada guud ee Sulex waa 100 Birr (hal mar ayaad maaddada iibsanaysaa xitaa haddii sannado badan ka muuqato). Ilaha imtixaannadii hore waa bilaash.';host.append(intro);
    const grid=document.createElement('div');grid.className='sx-archive-grid';
    subjects.forEach(sub=>{
      const available=inYear.filter(p=>sxNormalizeSubject(sxMeta(p,grade).subject)===sxNormalizeSubject(sub));
      const b=sxCreateButton('',()=>sxOpenSubject(grade,sub),'sx-archive-tile');
      const label=document.createElement('b');label.textContent='📘 '+sub;
-     const n=document.createElement('span');n.className='sx-count';n.textContent=available.length?'100 Birr · Imtixaanka Sulex':(sxPublicSource(grade,selected.year,sub)?'🔗 Warqad hore • Bilaash':'Weli lama gelin');
+     const n=document.createElement('span');n.className='sx-count';n.textContent=available.length?'100 Birr · Tababar guud (hal mar iibso)':(sxPublicSource(grade,selected.year,sub)?'🔗 Warqad hore • Bilaash':'Weli lama gelin');
      b.append(label,n);grid.append(b);
    });host.append(grid);return;
  }
@@ -546,7 +587,7 @@ async function fetchPublicCatalogViaREST(){
         const str=k=>v[k]?.stringValue||'';
         const num=k=>Number(v[k]?.integerValue??v[k]?.doubleValue??0);
         all.push({id:d.name.split('/').pop(),title:str('title'),summary:str('summary'),year:str('year'),
-          category:str('category'),price:num('price'),coverImage:str('coverImage'),published:v.published?.booleanValue===true,
+          category:str('category'),scope:str('scope'),subject:str('subject'),price:num('price'),coverImage:str('coverImage'),published:v.published?.booleanValue===true,
           createdAt:{seconds:Math.floor(Date.parse(v.createdAt?.timestampValue||d.createTime||0)/1000)||0}});
       }
       token=json.nextPageToken||'';
@@ -731,6 +772,87 @@ el('sm-import-publish').addEventListener('click', async()=>{
 });
 
 
+
+
+// Make the frequently used shopping commands show Somali first, Amharic below.
+for(const [id,ah] of [['sg-home','መነሻ'],['sg-book','መጽሐፉ'],['sg-shop','መጽሐፍ መደብር'],['sg-admin','አስተዳደር']]){
+ const a=document.getElementById(id);
+ if(a&&!a.querySelector('.sx-amh')){const e=document.createElement('small');e.className='sx-amh';e.textContent=ah;a.append(e)}
+}
+for(const b of document.querySelectorAll('button')){
+ const v=b.textContent.trim();
+ const labels={
+  '🔐 Continue with Google':'በጉግል ግባ',
+  'Ka bax':'ውጣ',
+  '📢 Daabac joornaalka • 100 Birr':'መጽሔት አትም • 100 ብር',
+  '📤 Daabac imtixaanka • 100 Birr':'ፈተና አትም • 100 ብር',
+  '📢 Daabac hadda':'አሁን አትም',
+  'Dir dalabka & fur WhatsApp':'ትዕዛዝ ላክ እና ዋትሳፕ ክፈት',
+  '💬 WhatsApp ugu dir dalabka/rasiidka':'ትዕዛዝን በዋትሳፕ ላክ'
+ };
+ const ah=labels[v]||'';
+ if(ah&&!b.querySelector('.sx-amh')){const e=document.createElement('small');e.className='sx-amh';e.textContent=ah;b.append(e)}
+}
+for(const a of document.querySelectorAll('a')){
+ const v=a.textContent.trim();
+ if(v.endsWith('Fur qaybta →')&&!a.querySelector('.sx-amh')){
+  const e=document.createElement('small');e.className='sx-amh';e.textContent='ክፍሉን ክፈት';a.append(e)
+ }
+}
+
+
+// Import all independently authored Sulex exam subjects in one administrator action.
+// The private Q&A never ships in this HTML: it only enters Firestore after the admin chooses the local JSON.
+el('sx-bulk-import').addEventListener('click',async()=>{
+ const input=el('sx-bulk-file'),status=el('sx-bulk-status'),btn=el('sx-bulk-import');
+ if(!isAdmin()){status.textContent='Marka hore Google account-ka maamulka ku gal. / መጀመሪያ እንደ አስተዳዳሪ ይግቡ።';return}
+ const file=input.files?.[0];
+ if(!file){status.textContent='Dooro Sulex_Dhammaan_Maadooyinka_100Birr.json ee Downloads.';return}
+ if(file.size>2500000){status.textContent='Faylka aad dooratay wuu ka weyn yahay 2.5MB.';return}
+ btn.disabled=true;status.textContent='Su’aalaha iyo qiimaha ayaa la hubinayaa…';
+ try{
+  const bundle=JSON.parse(await file.text());
+  if(bundle.format!=='sulex-bookshop-bulk-v1'||!Array.isArray(bundle.products)||
+     bundle.products.length<1||bundle.products.length>100)throw Error('Faylka maaddooyinka ma saxna.');
+  const valid=p=>p&&p.format==='sulex-bookshop-product-v1'&&
+    ['grade10','grade12'].includes(p.category)&&p.scope==='all_years'&&
+    typeof p.subject==='string'&&p.subject.length>1&&Number(p.price)===100&&
+    typeof p.title==='string'&&p.title.length>10&&p.title.length<=140&&
+    typeof p.year==='string'&&p.year.length<=80&&
+    typeof p.summary==='string'&&p.summary.length<=450&&
+    typeof p.content==='string'&&p.content.length>1500&&p.content.length<=150000&&
+    Array.isArray(p.questions)&&p.questions.length>=20&&p.questions.length<=200&&
+    p.questions.every(q=>typeof q.question==='string'&&q.question.length>3&&
+    Array.isArray(q.options)&&q.options.length===4&&new Set(q.options).size===4&&
+    Number.isInteger(q.answer)&&q.answer>=0&&q.answer<4&&typeof q.explanation==='string');
+  if(!bundle.products.every(valid))throw Error('Mid ka mid ah imtixaannada ma buuxinayo shuruudaha.');
+  const existing=new Set(products.map(p=>p.category+'|'+p.title.trim().toLowerCase()));
+  const fresh=bundle.products.filter(p=>!existing.has(p.category+'|'+p.title.trim().toLowerCase()));
+  if(!fresh.length){status.textContent='✅ Dhammaan maaddooyinkan hore ayaa loo daabacay; wax cusub lama gelin.';return}
+  const byGrade={'grade10':0,'grade12':0};for(const p of fresh)byGrade[p.category]++;
+  if(!confirm('Ma daabacnaa '+fresh.length+' maaddo oo cusub? Grade 10: '+byGrade.grade10+', Grade 12: '+byGrade.grade12+'. Midkiiba 100 Birr, hal mar oo maaddada la iibsado.')){
+    status.textContent='Daabacaadda waa laga noqday.';return
+  }
+  status.textContent='Daabacaadda '+fresh.length+' maaddo ayaa socota… Fadlan bogga ha xidhin.';
+  // Small bounded atomic batches avoid lengthy single requests over a mobile connection.
+  let completed=0;
+  for(let pos=0;pos<fresh.length;pos+=5){
+    const batch=writeBatch(db),chunk=fresh.slice(pos,pos+5);
+    for(const p of chunk){
+      const pr=doc(collection(db,'sulex_products'));
+      // Keep exactly the already tested public product fields; the scope is encoded in the title.
+      batch.set(pr,{category:p.category,title:p.title,
+        year:p.year,price:100,summary:p.summary,coverImage:'',published:true,createdAt:serverTimestamp()});
+      batch.set(doc(db,'sulex_private',pr.id),{content:p.content,images:[],createdAt:serverTimestamp()});
+    }
+    await batch.commit(); completed+=chunk.length;
+    status.textContent='✅ '+completed+'/'+fresh.length+' maaddo ayaa la daabacay…';
+  }
+  status.textContent='✅ '+completed+' maaddo ayaa la daabacay (100 Birr midkiiba). Book Shop → Grade 10 / Grade 12. '+(bundle.products.length-fresh.length)+' hore ayaa laga booday.';
+  input.value='';await loadProducts();
+ }catch(err){status.textContent='Khalad: '+errorText(err)+' — Haddii qaar hore u galeen, isla faylka dib dooro: kuwii hore waa laga boodayaa.'}
+ finally{btn.disabled=false}
+});
 
 // Sulex-owned exam publication from one private local JSON file.
 // Paid content stays in sulex_private (not in the public HTML or catalog).
