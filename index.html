@@ -442,6 +442,21 @@ const errorText = e => {
 };
 let currentUser=null, products=[], entitlements=new Set(), currentProduct=null, adminOrders=[];
 const isAdmin = () => !!(currentUser && currentUser.email?.toLowerCase() === OWNER_EMAIL && currentUser.emailVerified);
+// Journal issue numbers. Legacy publications receive their established display
+// numbers; newly published journals store the number in Firestore metadata.
+const sxJournalCode = p => {
+  if(p.category!=='journal')return '';
+  if(/^J\d{3,}$/.test(String(p.journalNumber||'')))return p.journalNumber;
+  const t=String(p.title||'').toLowerCase();
+  if(t.includes('adwa'))return 'J001';
+  if(t.includes('madaxweyn') && t.includes('soomaal'))return 'J002';
+  return '';
+};
+function sxNextJournalCode(){
+  const nums=products.filter(p=>p.category==='journal').map(p=>Number((sxJournalCode(p).match(/^J(\d+)$/)||[])[1]||0));
+  return 'J'+String(Math.max(2,...nums)+1).padStart(3,'0');
+}
+
 const cats = {'journal':'Joornaal taariikheed','grade10':'Grade 10','grade12':'Grade 12'};
 function safeUrl(url, hosts) {
   try { const u = new URL(String(url)); return u.protocol === 'https:' && hosts.some(h => u.hostname.toLowerCase() === h || u.hostname.toLowerCase() === 'www.' + h) ? u.href : ''; }
@@ -465,7 +480,7 @@ function card(p, owned=false) {
     const cover=document.createElement('img');cover.className='sm-cover-thumb';cover.loading='lazy';cover.alt='Daboolka '+p.title;cover.src=sulexJournalImageSrc(p.coverImage);art.append(cover);
   }
   const cardBody=document.createElement('div');
-  cardBody.innerHTML = `<span class="sm-card-kicker">${esc(cats[p.category]||'Joornaal')} ${p.year?'• '+esc(p.year):''}</span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p><div class="sm-card-foot"><strong>${money(price)}</strong><button class="sm-btn ${owned?'sm-main':'sm-outline'}" type="button">${owned?'📖 Akhri hadda':'🛒 Iibso'}</button></div>`;
+  cardBody.innerHTML = `<span class="sm-card-kicker">${p.category==='journal' && sxJournalCode(p)?'<b>'+esc(sxJournalCode(p))+'</b> • ':''}${esc(cats[p.category]||'Joornaal')} ${p.year?'• '+esc(p.year):''}</span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p><div class="sm-card-foot"><strong>${money(price)}</strong><button class="sm-btn ${owned?'sm-main':'sm-outline'}" type="button">${owned?'📖 Akhri hadda':'🛒 Iibso'}</button></div>`;
   art.append(cardBody);
   const act=art.querySelector('button');const am=document.createElement('small');am.className='sx-amh';am.textContent=owned?'አሁን አንብብ':'ግዛ';act.append(am);act.addEventListener('click',()=>owned?openReader(p):orderFor(p));
   return art;
@@ -649,7 +664,7 @@ async function fetchPublicCatalogViaREST(){
         const str=k=>v[k]?.stringValue||'';
         const num=k=>Number(v[k]?.integerValue??v[k]?.doubleValue??0);
         all.push({id:d.name.split('/').pop(),title:str('title'),summary:str('summary'),year:str('year'),
-          category:str('category'),scope:str('scope'),subject:str('subject'),price:num('price'),coverImage:str('coverImage'),published:v.published?.booleanValue===true,
+          category:str('category'),journalNumber:str('journalNumber'),scope:str('scope'),subject:str('subject'),price:num('price'),coverImage:str('coverImage'),published:v.published?.booleanValue===true,
           createdAt:{seconds:Math.floor(Date.parse(v.createdAt?.timestampValue||d.createTime||0)/1000)||0}});
       }
       token=json.nextPageToken||'';
@@ -823,11 +838,11 @@ el('sm-import-publish').addEventListener('click', async()=>{
     }
     const pr=doc(collection(db,'sulex_products'));const batch=writeBatch(db);
     const {category,title,year,price,summary,coverImage,content,images,imageCaptions}=data;
-    batch.set(pr,{category,title,year,price,summary,coverImage,published:true,createdAt:serverTimestamp()});
+    batch.set(pr,{category,title,year,price,summary,coverImage,...(category==='journal'?{journalNumber:sxNextJournalCode()}:{}),published:true,createdAt:serverTimestamp()});
     batch.set(doc(db,'sulex_private',pr.id),{content,images,imageCaptions,createdAt:serverTimestamp()});
     status.textContent='Waxa la daabacayaa…';
     await batch.commit();
-    status.textContent='✅ Adwa 1896 waa la daabacay (100 Birr). Book Shop → Joornaallada ka eeg.';
+    status.textContent='✅ Adwa 1896 waa la daabacay (J001, 100 Birr). Book Shop → Joornaallada ka eeg.';
     input.value='';await loadProducts();
   }catch(err){status.textContent='Khalad: '+errorText(err)}
   finally{btn.disabled=false}
@@ -1053,14 +1068,14 @@ el('sm-publish-form').addEventListener('submit',async e=>{
     if(content.length + images.reduce((sum,im)=>sum+im.length,0) > 780000)throw new Error('Qoraalka iyo sawirradu way badan yihiin. Yaree sawirrada ama qoraalka.');
     el('sm-publish-msg').textContent='Waxa la daabacayaa…';
     const pr=doc(collection(db,'sulex_products'));const batch=writeBatch(db);
-    batch.set(pr,{category,title,year,price,summary,coverImage,published:true,createdAt:serverTimestamp()});
+    batch.set(pr,{category,title,year,price,summary,coverImage,...(category==='journal'?{journalNumber:sxNextJournalCode()}:{}),published:true,createdAt:serverTimestamp()});
     batch.set(doc(db,'sulex_private',pr.id),{content,images,createdAt:serverTimestamp()});
     await batch.commit();
     el('sm-publish-form').reset();
     try { localStorage.removeItem(SULEX_DRAFT_KEY); } catch(_){}
     sulexUseAdwaPictures=false;
     el('sm-adwa-photo-status').textContent='';
-    el('sm-publish-msg').textContent='✅ Waa la daabacay. Macaamiisha hadda waxay arki karaan badhanka Iibso.';
+    el('sm-publish-msg').textContent='✅ Waa la daabacay'+(category==='journal'?' — lambarka joornaalka si otomaatig ah ayaa loo kaydiyay':'')+'. Macaamiisha hadda waxay arki karaan badhanka Iibso.';
     await loadProducts();
   }catch(err){el('sm-publish-msg').textContent='Daabacaaddu way diidday: '+errorText(err)}
   finally{btn.disabled=false}
