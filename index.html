@@ -457,6 +457,8 @@ function sulexJournalImageSrc(value){
   return '';
 }
 function card(p, owned=false) {
+  // Verified shop owner can read every published item without purchasing.
+  owned = owned || isAdmin();
   const art = document.createElement('article'); art.className='sm-card';
   const price = Number(p.price)||0;
   if(sulexJournalImageSrc(p.coverImage)) {
@@ -620,7 +622,7 @@ function renderProducts(){
  if(!journals.length)empty(jhost,'Joornaal weli lama daabicin.');
  else journals.forEach(p=>jhost.append(card(p,entitlements.has(p.id))));
  for(const grade of ['10','12']) renderExamArchive(grade);
- const mine=products.filter(p=>entitlements.has(p.id));
+ const mine=products.filter(p=>isAdmin() || entitlements.has(p.id));
  const lib=el('sm-my-books');lib.replaceChildren();
  if(!currentUser)empty(lib,'Google account-kaaga ku gal si aad u furato maktabaddaada.');
  else if(!mine.length)empty(lib,'Weli joornaal ama imtixaan laguu furay ma jiro.');
