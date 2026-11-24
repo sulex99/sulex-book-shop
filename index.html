@@ -335,7 +335,7 @@ body{background:#f2f6fe}
 <a href="#journals" class="sulex-tile"><span class="emoji">📰</span><h2>Joornaallada taariikhda</h2><small lang="am">የታሪክ መጽሔቶች</small><p>Akhris taariikheed, oo ay ku jirto Dagaalkii Adwa 1896 • 100 Birr</p><span class="sulex-tile-action">Iibso joornaal →</span></a>
 <a href="#library" class="sulex-tile"><span class="emoji">📚</span><h2>Maktabaddayda</h2><small lang="am">የእኔ ቤተ መጻሕፍት</small><p>Akhri joornaalladii iyo maaddooyinkii lacagtooda la xaqiijiyay.</p><span class="sulex-tile-action">Fur maktabadda →</span></a>
 </div>
-<section class="sulex-sales-heading" aria-labelledby="sulex-featured-heading"><h2 id="sulex-featured-heading">⭐ Kuwa hadda iibka ah</h2><p>Dooro alaabta aad rabto, hal mar iibso oo si joogto ah akhri.</p><div id="sm-shop-featured" class="sm-grid sm-items"><div class="sm-empty">Alaabta iibka ah waa la soo rarayaa…</div></div></section><div class="sm-auth-box"><span id="sm-auth-status">Geli Google account-kaaga si aad u aragto maktabaddaada.</span><button id="sm-login" class="sm-btn sm-main" type="button">🔐 Continue with Google</button><button id="sm-logout" class="sm-btn sm-outline" type="button" hidden>Ka bax</button></div><div class="sm-social"><b>Nala soo xidhiidh</b><a href="https://wa.me/251713880526" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.youtube.com/c/sulexYusuf" target="_blank" rel="noopener">YouTube</a><span id="sm-social-links"></span></div>
+<div class="sm-auth-box"><span id="sm-auth-status">Geli Google account-kaaga si aad u aragto maktabaddaada.</span><button id="sm-login" class="sm-btn sm-main" type="button">🔐 Continue with Google</button><button id="sm-logout" class="sm-btn sm-outline" type="button" hidden>Ka bax</button></div><div class="sm-social"><b>Nala soo xidhiidh</b><a href="https://wa.me/251713880526" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.youtube.com/c/sulexYusuf" target="_blank" rel="noopener">YouTube</a><span id="sm-social-links"></span></div>
 <a class="sulex-seo-gallery-link" href="buugaag.html">📸 Eeg sawirrada buugaagta Sulex / የመጻሕፍት ፎቶዎች</a>
 <details class="sulex-free-resources"><summary>📚 Ilo waxbarasho bilaash ah <small lang="am">ነፃ የትምህርት ምንጮች</small></summary><div class="sulex-free-content"><p>Kuwani waa links dibadeed oo gooni u taagan; kama mid aha maaddooyinka Sulex ee 100 Birr lagu iibiyo. Xuquuqda warqadaha waxaa leh cidda daabacday.</p><a href="https://camaraethiopia.org.et/CEE_National_Exam_New/" target="_blank" rel="noopener noreferrer">↗ Camara Ethiopia — warqado hore Grade 10</a><a href="https://temari.et/exam-prep/papers" target="_blank" rel="noopener noreferrer">↗ Temari.et — warqado hore Grade 12</a></div></details>
 </div></section><section id="view-journals" class="sulex-screen sulex-market-page" hidden><div class="container"><nav class="sulex-breadcrumb" aria-label="Meesha aad joogto"><a href="#home">Bogga hore</a><span>›</span><a href="#shop">Book Shop</a><span>›</span><strong>Joornaallada</strong></nav><div class="sulex-market-head"><h1>📰 Joornaallada taariikhda</h1><p>Halkan waxa ka muuqda joornaallada la daabacay. Qofkii iibsadaa isla Gmail-kiisa ayuu dib ugu akhrisan karaa.</p></div><div id="sm-journals" class="sm-grid sm-items"><div class="sm-empty">Joornaallada waa la soo rarayaa…</div></div></div></section>
@@ -373,7 +373,7 @@ body{background:#f2f6fe}
 (function(){
   'use strict';
   const screens = ['home','book','shop','journals','exams','grade10','grade12','library','admin'];
-  const oldBookAnchors = new Set(['bilow','shanta-tallaabo','casharro','bogag','iibsashada','dalbo','qoraa','su-aalaha','lacag-bixinta']);
+  const oldBookAnchors = new Set(['bilow','shanta-tallaabo','casharro','bogag','iibsashada','dalbo','qoraa','su-aalaha','lacag-bixinta','order-form']);
   const compat = {'sulex-market':'shop','sm-new':'journals','sm-exams':'exams','sm-library':'library'};
   function updateRoute(){
     const fragment = decodeURIComponent((location.hash||'#home').slice(1));
@@ -564,11 +564,11 @@ function renderExamArchive(grade){
  const count=arr=>arr.length?`${arr.length} maaddo la daabacay`:'Imtixaanno wali lama gelin';
  if(!selected.year){
    const note=document.createElement('p');note.className='sx-archive-caption';
-   note.textContent=grade==='10'?'Imtixaankii qaran ee Grade 10 wuxuu ku ekaaday 2011 T.I. Sannad walba waxaa ka muuqan kara tababarka guud ee Sulex: isla maaddada hal mar oo keliya ayaa la iibsanayaa.':'Kaydka sannadaha 1996–2018 T.I. iyo tababarada cusub ee 2019 T.I. Hal Set 1 oo maaddo kasta ah ayaa ka muuqan kara sannado badan; mar keliya ayaa la iibsanayaa.';
+   note.textContent=grade==='10'?'Imtixaankii qaran ee Grade 10 wuxuu ku ekaaday 2011 T.I. Tababarrada Sulex waxay ka muuqdaan sannadka loo daabacay.':'Kaydka sannadaha 1996–2018 T.I. iyo tababarada cusub ee 2019 T.I. Tababarrada waxay ka muuqdaan sannadka loo daabacay.';
    host.append(note);
    const grid=document.createElement('div');grid.className='sx-archive-grid';
    years.forEach(y=>{
-     const arr=target.filter(p=>sxMeta(p,grade).year===y || sxUniversalExam(p));
+     const arr=target.filter(p=>sxMeta(p,grade).year===y);
      const b=sxCreateButton('',()=>sxOpenYear(grade,y),'sx-archive-tile');
      const title=document.createElement('b');title.textContent=`📅 ${y} T.I.${(grade==='10' && Number(y)>2011 || grade==='12'&&Number(y)>2018)?' • Tababar Sulex':''}`;
      const sub=document.createElement('span');sub.className='sx-count';sub.textContent=arr.length?count(arr):'Weli lama gelin';
@@ -577,11 +577,11 @@ function renderExamArchive(grade){
  }
  host.append(sxCreateButton('← Dhammaan sannadaha',()=>{selected.year=null;selected.subject=null;renderExamArchive(grade)},'sx-archive-back'));
  const name=document.createElement('h2');name.textContent=`Grade ${grade} · ${selected.year} T.I.${(grade==='10'&&Number(selected.year)>2011||grade==='12'&&Number(selected.year)>2018)?' (Tababar Sulex)':''}`;host.append(name);
- const inYear=target.filter(p=>sxMeta(p,grade).year===selected.year || sxUniversalExam(p));
+ const inYear=target.filter(p=>sxMeta(p,grade).year===selected.year);
  const dynamic=inYear.map(p=>sxMeta(p,grade).subject).filter(Boolean);
  const subjects=[...new Set([...SX_EXAM_SUBJECTS[grade],...dynamic])];
  if(!selected.subject){
-   const intro=document.createElement('p');intro.className='sx-archive-caption';intro.textContent='Dooro maaddo: Tababarada cusub ee Sulex waa 100 Birr maaddadiiba. Isla Set 1 haddii sannado badan ka muuqdo hal mar oo keliya ayaad iibsanaysaa.';host.append(intro);
+   const intro=document.createElement('p');intro.className='sx-archive-caption';intro.textContent='Dooro maaddo: Tababarada cusub ee Sulex waa 100 Birr maaddadiiba. Maaddo kasta waxay ka muuqanaysaa sannadka loo daabacay.';host.append(intro);
    const grid=document.createElement('div');grid.className='sx-archive-grid';
    subjects.forEach(sub=>{
      const available=inYear.filter(p=>sxNormalizeSubject(sxMeta(p,grade).subject)===sxNormalizeSubject(sub));
@@ -603,24 +603,10 @@ function renderExamArchive(grade){
  }
 }
 function renderProducts(){
- const featured=el('sm-shop-featured');
- if(featured){
-   featured.replaceChildren();
-   const featuredEntries=[
-     products.find(p=>p.category==='journal' && /Adwa/i.test(p.title||'')),
-     products.find(p=>p.category==='grade10' && /Mathematics/i.test(p.title||'')),
-     products.find(p=>p.category==='grade12' && /Biology/i.test(p.title||'')),
-     ...products.filter(p=>['journal','grade10','grade12'].includes(p.category))
-   ].filter(Boolean);
-   const seen=new Set();
-   const unique=featuredEntries.filter(p=>{if(seen.has(p.id))return false;seen.add(p.id);return true;}).slice(0,6);
-   if(!unique.length)empty(featured,'Alaabta iibka ah waa la soo rarayaa…');
-   else unique.forEach(p=>featured.append(card(p,entitlements.has(p.id))));
- }
- const journals=products.filter(p=>p.category==='journal');
+ const journals=products.filter(p=>p.category==='journal').sort((a,b)=>(a.createdAt?.seconds||0)-(b.createdAt?.seconds||0)||String(a.id).localeCompare(String(b.id))); 
  const jhost=el('sm-journals');jhost.replaceChildren();
  if(!journals.length)empty(jhost,'Joornaal weli lama daabicin.');
- else journals.forEach(p=>jhost.append(card(p,entitlements.has(p.id))));
+ else journals.forEach((p,i)=>{const item=card(p,entitlements.has(p.id));const label=document.createElement('div');label.className='sm-card-kicker';label.textContent='J'+String(i+1).padStart(3,'0');item.prepend(label);jhost.append(item);});
  for(const grade of ['10','12']) renderExamArchive(grade);
  const mine=products.filter(p=>isAdmin() || entitlements.has(p.id));
  const lib=el('sm-my-books');lib.replaceChildren();
